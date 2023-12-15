@@ -44,14 +44,17 @@ function play_pause(){
     playPauseButton.textContent = 'Play';
     }
 }
-
+let ischanging =false;
 let startBtn =document.getElementById("start-btn");
 startBtn.addEventListener("click",()=>{
+   if(!ischanging){
    a = setInterval(function () {
         Array.from(boxes).forEach((e) => {
             e.style.backgroundColor = getRandColor();
         });
     }, 400);
+    }
+    ischanging=true;
 
     audioPlayer.play();
     
@@ -65,6 +68,8 @@ let stopBtn =document.getElementById("stop-btn");
 stopBtn.addEventListener("click",()=>{
     clearInterval(a);
     audioPlayer.pause();
+
+    ischanging=true;
     
     
 })
@@ -81,6 +86,8 @@ closeLight.addEventListener("click",()=>{
     boxs[i].style.backgroundColor="black";
    }
    audioPlayer.pause();
+
+   ischanging=false;
 })
 
 // code for audio 
