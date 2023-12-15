@@ -69,7 +69,7 @@ stopBtn.addEventListener("click",()=>{
     clearInterval(a);
     audioPlayer.pause();
 
-    ischanging=true;
+    ischanging=false;
     
     
 })
